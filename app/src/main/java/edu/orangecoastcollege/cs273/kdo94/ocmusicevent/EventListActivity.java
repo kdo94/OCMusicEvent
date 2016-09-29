@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.io.IOException;
@@ -33,7 +32,7 @@ public class EventListActivity extends ListActivity {
             Log.e("OC Music Events","Error loading JSON data.");
         }
 
-        setListAdapter(new ArrayAdapter<MusicEvent>(context, R.layout.music_event_list_item_layout, allMusicEvents));
+        setListAdapter(new MusicEventAdapter(context, R.layout.music_event_list_item_layout, allMusicEvents));
 
         // setContentView(R.layout.activity_event_list);
     }
@@ -44,12 +43,14 @@ public class EventListActivity extends ListActivity {
         String title = clickedEvent.getTitle();
         String date = clickedEvent.getDate();
         String day = clickedEvent.getDay();
+        String time = clickedEvent.getTime();
         String location = clickedEvent.getLocation();
         String address1 = clickedEvent.getAddress1();
         String address2 = clickedEvent.getAddress2();
         detailsIntent.putExtra("Title", title);
         detailsIntent.putExtra("Date", date);
         detailsIntent.putExtra("Day", day);
+        detailsIntent.putExtra("Time", time);
         detailsIntent.putExtra("Location", location);
         detailsIntent.putExtra("Address1", address1);
         detailsIntent.putExtra("Address2", address2);

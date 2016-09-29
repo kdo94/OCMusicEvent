@@ -17,10 +17,19 @@ public class EventDetailsActivity extends AppCompatActivity {
 
     public ImageView eventImageView;
     public TextView eventTitleTextView;
-    public TextView eventDetailsTextView;
+    public TextView eventDateDayTextView;
+    public TextView eventTimeTextView;
+    public TextView eventLocationTextView;
+    public TextView eventAddress1TextView;
+    public TextView eventAddress2TextView;
 
     private String title;
-    private String details;
+    private String date;
+    private String day;
+    private String time;
+    private String location;
+    private String address1;
+    private String address2;
     private String imageFileName;
 
     private Context context = (Context) this;
@@ -32,14 +41,29 @@ public class EventDetailsActivity extends AppCompatActivity {
 
         eventImageView = (ImageView) findViewById(R.id.eventImageView);
         eventTitleTextView = (TextView) findViewById(R.id.eventTitleTextView);
-        eventDetailsTextView = (TextView) findViewById(R.id.eventDetailsTextView);
+        eventDateDayTextView = (TextView) findViewById(R.id.eventDateDayTextView);
+        eventTimeTextView = (TextView) findViewById(R.id.eventTimeTextView);
+        eventLocationTextView = (TextView) findViewById(R.id.eventLocationTextView);
+        eventAddress1TextView = (TextView) findViewById(R.id.eventAddress1TestView);
+        eventAddress2TextView = (TextView) findViewById(R.id.eventAddress2TextView);
 
         Intent intentFromList = getIntent();
         title = intentFromList.getStringExtra("Title");
-        details = intentFromList.getStringExtra("Details");
+        date = intentFromList.getStringExtra("Date");
+        day = intentFromList.getStringExtra("Day");
+        time = intentFromList.getStringExtra("Time");
+        location = intentFromList.getStringExtra("Location");
+        address1 = intentFromList.getStringExtra("Address1");
+        address2 = intentFromList.getStringExtra("Address2");
 
         eventTitleTextView.setText(title);
-        eventDetailsTextView.setText(details);
+        eventDateDayTextView.setText(date + " - " + day);
+        eventTimeTextView.setText(time);
+        eventLocationTextView.setText(location);
+        eventAddress1TextView.setText(address1);
+        eventAddress2TextView.setText(address2);
+
+
         imageFileName = title.replace(" ", "" ) + ".jpeg";
 
         AssetManager am = context.getAssets();
