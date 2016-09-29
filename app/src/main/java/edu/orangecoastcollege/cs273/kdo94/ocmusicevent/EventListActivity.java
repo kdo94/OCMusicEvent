@@ -26,6 +26,5 @@ public class EventListActivity extends ListActivity {
         detailsIntent.putExtra("Title", title);
         detailsIntent.putExtra("Details", details);
         startActivity(detailsIntent);
-
     }
 }
