@@ -27,7 +27,7 @@ public class EventListActivity extends ListActivity {
         // setListAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, MusicEvent.titles));
 
         try{
-            allMusicEvents = JSONLoader.loadJSONFromAsset();
+            allMusicEvents = JSONLoader.loadJSONFromAsset(context);
         }
         catch(IOException ex){
             Log.e("OC Music Events","Error loading JSON data.");
@@ -39,12 +39,20 @@ public class EventListActivity extends ListActivity {
     }
 
     protected void onListItemClick(ListView l, View v, int pos, long id){
-        String title = MusicEvent.titles[pos];
-        String details = MusicEvent.details[pos];
-
         Intent detailsIntent = new Intent(this, EventDetailsActivity.class);
+        MusicEvent clickedEvent = allMusicEvents.get(pos);
+        String title = clickedEvent.getTitle();
+        String date = clickedEvent.getDate();
+        String day = clickedEvent.getDay();
+        String location = clickedEvent.getLocation();
+        String address1 = clickedEvent.getAddress1();
+        String address2 = clickedEvent.getAddress2();
         detailsIntent.putExtra("Title", title);
-        detailsIntent.putExtra("Details", details);
+        detailsIntent.putExtra("Date", date);
+        detailsIntent.putExtra("Day", day);
+        detailsIntent.putExtra("Location", location);
+        detailsIntent.putExtra("Address1", address1);
+        detailsIntent.putExtra("Address2", address2);
         startActivity(detailsIntent);
     }
 }
