@@ -33,7 +33,7 @@ public class EventListActivity extends ListActivity {
             Log.e("OC Music Events","Error loading JSON data.");
         }
 
-        setListAdapter(new ArrayAdapter<MusicEvent>(context, R.layout.music_event_list_item_layout, ));
+        setListAdapter(new ArrayAdapter<MusicEvent>(context, R.layout.music_event_list_item_layout, allMusicEvents));
 
         // setContentView(R.layout.activity_event_list);
     }
