@@ -44,6 +44,7 @@ public class EventDetailsActivity extends AppCompatActivity {
 
         AssetManager am = context.getAssets();
 
+
         try{
            InputStream stream = am.open(imageFileName);
             Drawable image = Drawable.createFromStream(stream, title);
