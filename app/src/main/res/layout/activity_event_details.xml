@@ -18,7 +18,8 @@
         android:id="@+id/eventImageView"
         android:layout_weight="1"
         android:adjustViewBounds="true"
-        android:scaleType="center" />
+        android:scaleType="fitCenter"
+        android:layout_height="wrap_content" />
 
     <TextView
         android:text="TextView"

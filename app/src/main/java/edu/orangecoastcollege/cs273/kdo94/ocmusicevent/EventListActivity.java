@@ -9,10 +9,13 @@ import android.widget.ListView;
 
 public class EventListActivity extends ListActivity {
 
+    private ListView eventListView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        eventListView = (ListView) findViewById(R.id.eventListView);
         setListAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, MusicEvent.titles ));
 
         // setContentView(R.layout.activity_event_list);
