@@ -44,7 +44,7 @@ public class EventDetailsActivity extends AppCompatActivity {
 
         AssetManager am = context.getAssets();
 
-
+        //testing for branch
         try{
            InputStream stream = am.open(imageFileName);
             Drawable image = Drawable.createFromStream(stream, title);
